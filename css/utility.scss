@@ -1,0 +1,108 @@
+/* DISPLAY */
+.block {
+    display: block;
+}
+
+.inline-block {
+    display: inline-block;
+}
+
+.inline {
+    display: inline;
+}
+
+/* ALIGNMENT */
+.block-center {
+    margin: 0 auto;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.text-left {
+    text-align: left;
+}
+
+.text-center {
+    text-align: center;
+}
+
+/* FLOATS */
+.float-left {
+    float: left;
+}
+
+.float-right {
+    float: right;
+}
+
+/* BOX & TEXT SHADOW */
+.text-shadow-dark {
+    text-shadow: 1px 1px 1px #444;
+}
+
+.text-shadow-light {
+    text-shadow: 1px 1px 1px #C4C4C4;
+}
+
+.box-shadow {
+    box-shadow: 0 0 8px 0 rgba(0,0,0,0.20);
+}
+
+.box-shadow-down {
+    box-shadow: 0 2px 8px 0 rgba(0,0,0,0.20);
+}
+
+.box-shadow-up {
+    box-shadow: 0 -3px 8px 0 rgba(0,0,0,0.20);
+}
+
+.box-shadow-right {
+    box-shadow: 3px 2px 8px 0 rgba(0,0,0,0.20);
+}
+
+.box-shadow-left {
+    box-shadow: -3px 2px 8px 0 rgba(0,0,0,0.20);
+}
+
+/* GRID (apply .no-gutter to .row) */
+.no-gutter > [class*='col-'] {
+    padding-right:0;
+    padding-left:0;
+}
+
+/* LISTS */
+.inline-list {
+    list-style-type: none;
+    overflow: hidden;
+    text-align: center;
+}
+
+.inline-list > li {
+    display: inline-block;
+    padding: 10px 15px;
+}
+
+/* HIDE-SHOW */
+.hidden {
+    display: none !important;
+    visibility: hidden;
+}
+
+.invisible {
+    visibility: hidden;
+}
+
+.opacity-zero {
+    opacity: 0;
+}
+
+.opacity-one {
+    opacity: 1;
+}
+
+/* TESTING BORDERS */
+.testing-border {
+    border: 1px solid red;
+}
