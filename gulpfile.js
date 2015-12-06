@@ -62,7 +62,6 @@ gulp.task('js', function() {
  
 gulp.task('watch', function() {
     gulp.watch(CSS.WATCH, ['css']);
-    gulp.watch(JS.WATCH, ['js']);
 });
 
-gulp.task('default', ['watch', 'css', 'js']);
+gulp.task('default', ['watch', 'css']);
