@@ -39,11 +39,9 @@ var myApp = angular.module('MyApp', ['ui.router', 'ngSanitize'])
 
 	$http.get('js/data/geninfo.json').then(function(response) {
         $scope.hospitals = response.data.data;
-        // $scope.hospital = $filter('filter')($scope.hospitals, { // filter the array
-        //     8: $stateParams.id
-        // }, true)[0]; // save the 0th result
-        // console.log($scope.hospital);
-		$scope.testHospital = response.data.data[91];
+        $scope.hospital = $filter('filter')($scope.hospitals, function(hospital) { // filter the array
+            return hospital[8] == $stateParams.id;
+        }, true)[0]; // save the 0th result
     });
 
     $scope.lowercase = function(string) {
@@ -59,7 +57,7 @@ var myApp = angular.module('MyApp', ['ui.router', 'ngSanitize'])
     $scope.cityState = function(hospital) {
     	var city = hospital[11].charAt(0).toUpperCase() + hospital[11].substr(1).toLowerCase();
     	var state = hospital[12];
-    	return city + ', ' + state; 
+    	return city + ', ' + state + ' '+ hospital[13]; 
     };
 
     $scope.phone = function(number) {
