@@ -3,7 +3,7 @@ var DATA_START_INDEX = 8,
     DATA_END_INDEX = 16;
 
 
-//ui-router/release/
+
 var myApp = angular.module('MyApp', ['ui.router', 'ngSanitize'])
 
 	.config(function($stateProvider){
@@ -49,17 +49,15 @@ var myApp = angular.module('MyApp', ['ui.router', 'ngSanitize'])
  	});
 }])
 
-.controller('DetailCtrl', ['$scope', '$http', '$sce',function($scope, $http, $sce) {
+.controller('DetailCtrl', ['$scope', '$http', '$sce', '$filter', '$stateParams',function($scope, $http, $sce, $filter, $stateParams) {
 
 	console.log("in detail");
 
-	$http.get('js/data/hospitals.json').then(function(response) {
+	$http.get('js/data/geninfo.json').then(function(response) {
         $scope.hospitals = response.data.data;
-        // $scope.hospital = $filter('filter')($scope.hospitals, { // filter the array
-        //     8: $stateParams.id
-        // }, true)[0]; // save the 0th result
-		$scope.testHospital = response.data.data[91];
-        console.log($scope.testHospital);
+        $scope.hospital = $filter('filter')($scope.hospitals, function(hospital) { // filter the array
+            return hospital[8] == $stateParams.id;
+        }, true)[0]; // save the 0th result
     });
 
 
@@ -78,7 +76,7 @@ console.log(myApp);
     $scope.cityState = function(hospital) {
     	var city = hospital[11].charAt(0).toUpperCase() + hospital[11].substr(1).toLowerCase();
     	var state = hospital[12];
-    	return city + ', ' + state; 
+    	return city + ', ' + state + ' '+ hospital[13]; 
     };
 
     $scope.phone = function(number) {
@@ -92,6 +90,5 @@ console.log(myApp);
     	return $sce.trustAsResourceUrl(url);
     };
 
-}])
 
-
+}]);
