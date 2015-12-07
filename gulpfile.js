@@ -15,7 +15,7 @@ var CSS = {
     SOURCE: './css/common.scss',
     DESTINATION: './css',
     BUILD_FILE_NAME: 'all.min.css',
-    WATCH: './css/*.scss'
+    WATCH: './css/**/*.scss'
 };
 
 var JS = {

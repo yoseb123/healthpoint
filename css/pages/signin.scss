@@ -1,0 +1,70 @@
+#signin {
+    background-color: $fb-2;
+    padding-top: 50px;
+    
+    > div {
+        width: 100%;
+
+        .row {
+            background-color: $fb-1;
+            border-radius: 2px;
+            border: 1px solid $gray-2;
+            padding: 1em 0;
+
+            input {
+                display: inline-block;
+                width: 100%;
+                border: 1px solid $gray-2;
+                border-radius: 2px;
+                padding: 1em;
+                margin-bottom: 0.5em;
+            }
+
+            input[type="submit"] {
+                margin: 1em 0;
+                background-color: $blue;
+                color: white;
+                border: none;
+            }
+
+            small {
+                margin: 1em 0;
+            }
+        }
+    }
+}
+
+/* Small devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+    #signin {
+        background-color: $fb-2;
+        padding: 0;
+        
+        > div {
+            width: 700px;
+            transform: translate(-50%, -50%);
+            position: absolute;
+            top: 40%;
+            left: 50%;
+
+            .row {
+                background-color: $fb-1;
+                padding: 0.5em;
+
+                #signup-form-wrapper {
+                    border-left: 1px solid $gray-2;
+
+                    #signup-form {
+                        padding-left: 0.5em;
+                    }
+                }
+
+                #signin-form-wrapper {
+                    #signin-form {
+                        padding-right: 0.5em;
+                    }
+                }
+            }
+        }
+    }
+}

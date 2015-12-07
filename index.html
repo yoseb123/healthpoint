@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="MyApp">
+<html lang="en" ng-app="App">
     <head>
         <!-- viewport declaration for mobile devices -->
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -18,14 +18,22 @@
 
         <nav>
             <a ui-sref="home">healthPOINT</a>
-            <div class="pull-right"><a ui-sref="tba">SIGN IN</a></div>
+            <div class="pull-right">
+                <a ui-sref="signin">SIGN IN</a>
+            </div>
         </nav>
+
 
         <div ui-view></div>
         <footer></footer>
          git 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.15/angular-ui-router.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0rc1/angular-sanitize.min.js"></script>
+
         <script src="js/main.js"></script>
+        <script src="js/controllers/home.js"></script>
+        <script src="js/controllers/signIn.js"></script>
+        <script src="js/controllers/detail.js"></script>
+        <script src="js/controllers/search.js"></script>
     </body>
 </html>
