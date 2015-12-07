@@ -17,27 +17,39 @@ body {
 h1, h2, h3, h4, h5, h6 {
   font-family: $fs-osans;
   margin: 0.5em 0;
+  color: $gray-5;
 }
 
 a {
   text-decoration: none;
-  color: $gray-3;
+  color: #fff;
 }
 
 nav {
-  text-align:center;
+  position:fixed;
+  z-index:100;
   padding: 1em;
-  padding-right: 50px;
+  padding-right: 1em;
   height:50px;
-  background-color: $fblue;
+  background-color: $maroon;
+  width: 100%;
 }
 
 nav a:hover {
-  color:#fff;
+  color: $yellow;
 }
 
 footer {
-  
+  height:50px;
+  background-color: $maroon;
+  padding: 1em;
+  padding-left: 50px;
+}
+
+.wrapper {
+  min-height:500px;
+  text-align:center;
+  padding: 4em;
 }
 
 /* MEDIA QUERIES */
