@@ -1,11 +1,7 @@
 'use strict';
+var DATA_START_INDEX = 8,
+    DATA_END_INDEX = 16;
 
-// var $ = require('jquery'),
-//     data = require('./data/data'),
-//     constants = require('./lib/constants'),
-//     angular = require('angular'),
-//     angularUiRouter = require("angular-ui-router");
-//ui-router/release/
 var myApp = angular.module('MyApp', ['ui.router'])
 	.config(function($stateProvider){
 	$stateProvider
@@ -34,9 +30,20 @@ var myApp = angular.module('MyApp', ['ui.router'])
 
 }])
 .controller('SearchCtrl', ['$scope', '$http',function($scope, $http) {
-	console.log("in search");
+	
 
+	$http.get('js/data/data.json').then(function(response) {
+		$scope.hospitals = []; 
+ 		$scope.hospitalsDataSet = response.data;
+ 		for (var i = 0; i < $scope.hospitalsDataSet[0].data.length; i++) {
+ 			console.log($scope.hospitalsDataSet[0].data[i]);
+ 			$scope.hospitals.push($scope.hospitalsDataSet[0].data[i]);
 
+ 		};
+ 		$scope.hospitalInfo = $scope.hospitalsDataSet.data;
+ 		console.log($scope.hospitals);
+
+ 	});
 }])
 
 .controller('DetailCtrl', ['$scope', '$http',function($scope, $http) {
