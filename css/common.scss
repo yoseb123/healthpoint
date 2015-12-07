@@ -24,12 +24,9 @@ a {
   color: $gray-3;
 }
 
-header {
-    
-}
-
-header nav {
-    
+nav {
+  height:50px;
+  background-color: $fblue;
 }
 
 footer {
@@ -145,3 +142,6 @@ footer {
 //    font-weight: normal;
 //    font-style: normal;
 //}
+
+/* FONT AWESOME */
+@import url("https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css");

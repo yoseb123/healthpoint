@@ -1,11 +1,5 @@
 'use strict';
 
- // var $ = require('jquery'),
- //     data = require('./data/data'),
- //     constants = require('./lib/constants'),
- //     angular = require('angular'),
- //     angularUiRouter = require("angular-ui-router");
-//ui-router/release/
 var myApp = angular.module('MyApp', ['ui.router', 'ngSanitize'])
 	.config(function($stateProvider){
 	$stateProvider
@@ -39,17 +33,17 @@ var myApp = angular.module('MyApp', ['ui.router', 'ngSanitize'])
 
 }])
 
-.controller('DetailCtrl', ['$scope', '$http', '$sce',function($scope, $http, $sce) {
+.controller('DetailCtrl', ['$scope', '$http', '$sce', '$filter', '$stateParams',function($scope, $http, $sce, $filter, $stateParams) {
 
 	console.log("in detail");
 
-	$http.get('js/data/hospitals.json').then(function(response) {
+	$http.get('js/data/geninfo.json').then(function(response) {
         $scope.hospitals = response.data.data;
         // $scope.hospital = $filter('filter')($scope.hospitals, { // filter the array
         //     8: $stateParams.id
         // }, true)[0]; // save the 0th result
+        // console.log($scope.hospital);
 		$scope.testHospital = response.data.data[91];
-        console.log($scope.testHospital);
     });
 
     $scope.lowercase = function(string) {
@@ -80,8 +74,3 @@ var myApp = angular.module('MyApp', ['ui.router', 'ngSanitize'])
     };
 
 }])
-
-// data.hospitals.data.forEach(function(hosp) {
-//     console.log(hosp[constants.DATA_START_INDEX]);
-//     console.log(hosp[constants.DATA_END_INDEX]);
-// });

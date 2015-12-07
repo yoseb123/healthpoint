@@ -52,7 +52,7 @@ gulp.task('js', function() {
         var minFileName = fileName.substring(0, extIndex) + '.min'
                         + fileName.substring(extIndex, fileName.length);
         browserify(jsFiles[i])
-        .transform('babelify')
+        .transform('babelify', {presets: ['es2015', 'react']})
         .bundle()
         .pipe(source(minFileName))
         .pipe(streamify(uglify()))
@@ -62,7 +62,6 @@ gulp.task('js', function() {
  
 gulp.task('watch', function() {
     gulp.watch(CSS.WATCH, ['css']);
-    gulp.watch(JS.WATCH, ['js']);
 });
 
-gulp.task('default', ['watch', 'css', 'js']);
+gulp.task('default', ['watch', 'css']);
