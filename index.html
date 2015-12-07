@@ -1,19 +1,21 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="MyApp">
     <head>
         <!-- viewport declaration for mobile devices -->
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <title></title>
-        <meta name="description" content="">
+        <meta name="description" content="Health Point">
         <meta name="author" content="Austin Gebauer">
         <meta charset="utf-8">
-
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.js"></script>
         <link rel="stylesheet" href="css/grid.min.css">
         <link rel="stylesheet" href="css/all.min.css"/>
     </head>
     <body>
-        <h1>Hello</h1>
+        <div ui-view></div>
+         
+         <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.15/angular-ui-router.js"></script>
         <script src="js/main.js"></script>
     </body>
 </html>
