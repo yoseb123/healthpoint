@@ -28,9 +28,6 @@ header {
   z-index:10;
 }
 
-.input-group {
-	position:fixed;
-	top:40%;
-	left:40%;
-	z-index:30;
+#search {
+  padding:.25em;
 }
