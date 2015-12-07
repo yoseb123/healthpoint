@@ -1,14 +1,23 @@
 <!-- HTML partial for the hospital details page -->
-<h1>{{lowercase(testHospital[9])}}</h1>
-<h4>{{lowercase(testHospital[10])}}</h4>
-<h4>{{cityState(testHospital)}}</h4>
-<h4>{{phone(testHospital[14][0])}}</h4>
-<iframe
-  width="400"
-  height="400"
-  frameborder="0" style="border:0"
-  src={{mapURL(testHospital)}} allowfullscreen>
-</iframe>
+<div class="wrapper">
+	<div class="row">
+		<div class="col-md-4">
+			<iframe
+			  width="400"
+			  height="400"
+			  frameborder="0" style="border:0"
+			  src={{mapURL(testHospital)}} allowfullscreen>
+			</iframe>
+		</div>
+		<div class="col-md-8">
+			<h1>{{(testHospital[9])}}</h1>
+			<p>{{lowercase(testHospital[10])}}<br>
+			{{cityState(testHospital)}}<br>
+			{{phone(testHospital[14][0])}}<br>
+			</p>
+		</div>
+	</div>
+</div>
 
 <!-- <h1>{{hospital[9]}}</h1>
 <h4>{{hospital[10]}}</h4>
