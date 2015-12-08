@@ -71,4 +71,11 @@ var myApp = angular.module('MyApp', ['ui.router', 'ngSanitize'])
     	return $sce.trustAsResourceUrl(url);
     };
 
+    $http.get('js/data/surveys.json').then(function(response) {
+        $scope.surveys = response.data.data;
+        $scope.survey = $filter('filter')($scope.surveys, function(survey) { // filter the array
+            return hospital[8] == $stateParams.id;
+        }, true)[0]; // save the 0th result
+    });
+
 }])
