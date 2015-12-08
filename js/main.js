@@ -1,6 +1,11 @@
 'use strict';
+var DATA_START_INDEX = 8,
+    DATA_END_INDEX = 16;
+
+
 
 var myApp = angular.module('MyApp', ['ui.router', 'ngSanitize'])
+
 	.config(function($stateProvider){
 	$stateProvider
 		.state('home', {
@@ -28,9 +33,20 @@ var myApp = angular.module('MyApp', ['ui.router', 'ngSanitize'])
 
 }])
 .controller('SearchCtrl', ['$scope', '$http',function($scope, $http) {
-	console.log("in search");
+	
 
+	$http.get('js/data/data.json').then(function(response) {
+		$scope.hospitals = []; 
+ 		$scope.hospitalsDataSet = response.data;
+ 		for (var i = 0; i < $scope.hospitalsDataSet[0].data.length; i++) {
+ 			console.log($scope.hospitalsDataSet[0].data[i]);
+ 			$scope.hospitals.push($scope.hospitalsDataSet[0].data[i]);
 
+ 		};
+ 		$scope.hospitalInfo = $scope.hospitalsDataSet.data;
+ 		console.log($scope.hospitals);
+
+ 	});
 }])
 
 .controller('DetailCtrl', ['$scope', '$http', '$sce', '$filter', '$stateParams',function($scope, $http, $sce, $filter, $stateParams) {
@@ -43,6 +59,9 @@ var myApp = angular.module('MyApp', ['ui.router', 'ngSanitize'])
             return hospital[8] == $stateParams.id;
         }, true)[0]; // save the 0th result
     });
+
+
+console.log(myApp);
 
     $scope.lowercase = function(string) {
         return string.replace(/\w\S*/g, function(word) {
@@ -78,4 +97,4 @@ var myApp = angular.module('MyApp', ['ui.router', 'ngSanitize'])
         }, true)[0]; // save the 0th result
     });
 
-}])
+}]);

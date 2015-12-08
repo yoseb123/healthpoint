@@ -19,6 +19,14 @@ header {
   padding: 30px;
 }
 
+
+.hplogo {
+
+    width: 200px;
+    height: 50px;
+}
+
+
 .over {
   background-color:black;
   opacity:.3;
