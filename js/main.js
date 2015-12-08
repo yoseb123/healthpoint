@@ -3,7 +3,7 @@
 var App = angular.module('App', ['ui.router', 'ngSanitize']);
 
 // Define front-end routes
-App.config(function($stateProvider, $locationProvider) {
+App.config(function($stateProvider) {
 	$stateProvider
 		.state('home', {
 			url: '/',
