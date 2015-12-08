@@ -1,7 +1,33 @@
 <!-- HTML partial for the search feature -->
-<h1>Test Search</h1>
+<div>
+	<h1>Test Search</h1>
 
-<ul>
+	<div class="form-inline pull-left">
+		<label for="search"><i class="fa fa-search"></i></label>
+		<input name="query" placeholder="Search" id="search" ng-model="searchQuery">
+	</div>
+
+	<table class="table">
+		<tr>
+			<th><a href="" ng-click="sortingCriteria='title'">Name</a></th>
+			<th><a href="" ng-click="sortingCriteria='released'">Address</a></th>
+			<th><a href="" ng-click="sortingCriteria='genre'">City</a></th>
+			<th><a href="" ng-click="sortingCriteria='-gross'">State</a></th>
+			<th><a href="" ng-click="sortingCriteria='distributor'">Location</a></th>
+		</tr>
+		<tr ng-repeat="hospital in hospitals track by $index ">
+			<!-- hospital name -->
+			<td><a ui-sref="detail({id: movie.id})">{{hospital[9]}}</a></td>
+			<!-- hospital Address -->
+			<td>{{hospital[10]}}</td>
+			<!-- city -->
+			<td>{{hospital[11]}}</td>
+			<!-- state -->
+			<td>{{hospital[12]}}</td>
+
+			<td>{{hospital[13]}}</td>
+		</tr>
+	</table>
 	
-<li ng-repeat = "hospital in hospitals track by $index"= >{{hospital[8] + hospital[9]}}</li>
-</ul>
+</div>
+<!-- | orderBy:sortingCriteria | filter:searchQuery  -->

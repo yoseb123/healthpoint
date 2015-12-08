@@ -2,6 +2,36 @@
 <link href="css/pages/detail.css" rel="stylesheet" type="text/css" />
 <div class="wrapper">
 	<div class="row">
+
+		<div class="col-md-3">
+			<h1>{{(hospital[9])}}</h1>
+			<p><i class="fa fa-building-o"></i></i>&nbsp;&nbsp;{{lowercase(hospital[10])}}<br>
+			<i class="fa fa-building"></i>&nbsp;&nbsp;{{cityState(hospital)}}<br>
+			<i class="fa fa-phone"></i>&nbsp;&nbsp;{{phone(hospital[14][0])}}<br>
+			</p>
+		</div>
+		<div class="col-md-5">
+			<h6><i class="fa fa-trash-o"></i>&nbsp;&nbsp;Cleanliness</h6>
+			<div class="progressbar">
+				<div style={{barWidth(cleanRating[13])}}></div>
+			</div>
+			<h6><i class="fa fa-volume-up"></i>&nbsp;&nbsp;Quietness</h6>
+			<div class="progressbar">
+				<div style={{barWidth(quietRating[13])}}></div>
+			</div>
+			<h6><i class="fa fa-eyedropper"></i>&nbsp;&nbsp;Pain Management</h6>
+			<div class="progressbar">
+				<div style={{barWidth(painRating[13])}}></div>
+			</div>
+			<h6><i class="fa fa-user-md"></i>&nbsp;&nbsp;Doctor Communication</h6>
+			<div class="progressbar">
+				<div style={{barWidth(doctorRating[13])}}></div>
+			</div>
+			<h6><i class="fa fa-users"></i>&nbsp;&nbsp;Nurse Communication</h6>
+			<div class="progressbar">
+				<div style={{barWidth(nurseRating[13])}}></div>
+			</div>
+		</div>
 		<div class="col-md-4">
 			<iframe
 			  width="400"
@@ -10,16 +40,5 @@
 			  src={{mapURL(hospital)}} allowfullscreen>
 			</iframe>
 		</div>
-		<div class="col-md-8">
-			<h1>{{(hospital[9])}}</h1>
-			<p><i class="fa fa-building-o"></i></i>&nbsp;&nbsp;{{lowercase(hospital[10])}}<br>
-			<i class="fa fa-building"></i>&nbsp;&nbsp;{{cityState(hospital)}}<br>
-			<i class="fa fa-phone"></i>&nbsp;&nbsp;{{phone(hospital[14][0])}}<br>
-			</p>
-		</div>
 	</div>
 </div>
-
-<!-- <h1>{{hospital[9]}}</h1>
-<h4>{{hospital[10]}}</h4>
- -->
