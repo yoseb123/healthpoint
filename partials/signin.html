@@ -15,8 +15,9 @@
                     <small class="block text-center">Not a user? Create an account.</small>
                     <!-- Sign up form -->
                     <form name="signupForm" id="signup-form" ng-submit="processSignup()">
-                        <input type="text" placeholder="Username" ng-model="suUsername" required="required" />
-                        <input type="password" placeholder="Password" ng-model="suPassword" pattern=".{8,}" required title="Must be greater than 8 characters in length"="required" />
+                        <input type="text" placeholder="Username" ng-model="suUsername" required="required" pattern=".{2,}" title="Username must be at least two characters in length"/>
+                        <input type="password" placeholder="Password" ng-model="suPassword" pattern=".{8,}" title="Must be greater than 8 characters in length" required />
+                        <input type="password" placeholder="Confirm Password" ng-model="suPasswordConfirm" pattern=".{8,}" title="Must be greater than 8 characters in length" required />
                         <input type="email" placeholder="Email" ng-model="suEmail" required="required" />
                         <input type="submit" value="Create Account" />
                     </form>

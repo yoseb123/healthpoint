@@ -1,32 +1,68 @@
 'use strict';
 
 // sign in controller
-App.controller('SignInCtrl', ['$scope', '$http', function($scope, $http) {
-    
-    Parse.initialize('kiABolVJcRyVxfDJjHtKQwC4yx8nWaX7OFxGIXbe',
-            'iSpL6lpjEo3IJS5Im7UU2N0rv6RI4St8omwyv9fp');
+App.controller('SignInCtrl', ['$scope', '$rootScope', '$http', '$state', function($scope, $rootScope, $http, $state) {
 
     var currentUser = Parse.User.current();
     if (currentUser) {
-        // change router location to /
-    } else {
-        console.log('user not signed in');
+        $state.go('home');
     }
 
     $scope.siUsername = '';
     $scope.siPassword = '';
     $scope.processSignin = function() {
-        console.log($scope.siUsername);
-        console.log($scope.siPassword);
+        logInUser($scope.siUsername, $scope.siPassword);
     };
 
     $scope.suUsername = '';
     $scope.suPassword = '';
+    $scope.suPasswordConfirm = '';
     $scope.suEmail = '';
     $scope.processSignup = function() {
-        console.log($scope.suUsername);
-        console.log($scope.suPassword);
-        console.log($scope.suEmail);
+        if ($scope.suPassword !== $scope.suPasswordConfirm) {
+            alert('Passwords must match');
+        } else {
+            var formFieldObj = {
+                username: $scope.suUsername,
+                password: $scope.suPassword,
+                email: $scope.suEmail
+            };
+
+            createParseUser(formFieldObj);
+        }
     };
+
+    // Creates a parse user using the passed formFieldObj
+    // A formFieldObj is a JavaScript object that contains
+    // a key for each: username, password, email
+    function createParseUser(formFieldObj) {
+        var user = new Parse.User();
+        user.set('username', formFieldObj.username);
+        user.set('password', formFieldObj.password);
+        user.set('email', formFieldObj.email);
+
+        user.signUp(null, {
+            success: function(user) {
+                $rootScope.userSignedIn = true;
+                $state.go('home');
+            },
+            error: function(user, error) {
+                alert('Error: ' + error.code + ' ' + error.message);
+            }
+        });
+    }
+
+    // Logs in the Parse user with the passed username and password
+    function logInUser(username, password) {
+        Parse.User.logIn(username, password, {
+            success: function(user) {
+                $rootScope.userSignedIn = true;
+                $state.go('home');
+            },
+            error: function(user, error) {
+                alert('Error: ' + error.code + ' ' + error.message);
+            }
+        });
+    }
 
 }]);

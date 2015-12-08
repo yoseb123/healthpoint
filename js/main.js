@@ -25,4 +25,8 @@ App.config(function($stateProvider) {
 			templateUrl: 'partials/signin.html',
 			controller: 'SignInCtrl'
 		});
+
+		// Initialize parse
+		Parse.initialize('kiABolVJcRyVxfDJjHtKQwC4yx8nWaX7OFxGIXbe',
+            'iSpL6lpjEo3IJS5Im7UU2N0rv6RI4St8omwyv9fp');
 });

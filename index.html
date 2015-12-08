@@ -15,10 +15,11 @@
         <link rel="stylesheet" href="css/all.min.css"/>
     </head>
     <body>
-        <nav>
+        <nav ng-controller="NavController">
             <a ui-sref="home">healthPOINT</a>
             <div class="pull-right">
-                <a ui-sref="signin">SIGN IN</a>
+                <a ng-if="!userSignedIn" ui-sref="signin">SIGN IN</a>
+                <a ng-if="userSignedIn" ng-click="processSignout()" href="#">SIGN OUT</a>
             </div>
         </nav>
         <div ui-view></div>
@@ -28,6 +29,7 @@
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0rc1/angular-sanitize.min.js"></script>
         <script src="https://www.parsecdn.com/js/parse-1.6.7.min.js"></script>
         <script src="js/main.js"></script>
+        <script src="js/controllers/navigation.js"></script>
         <script src="js/controllers/home.js"></script>
         <script src="js/controllers/signIn.js"></script>
         <script src="js/controllers/detail.js"></script>

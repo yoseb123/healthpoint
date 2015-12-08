@@ -25,6 +25,11 @@
                 background-color: $blue;
                 color: white;
                 border: none;
+                transition: opacity 0.3s;
+
+                &:hover {
+                    opacity: 0.9;
+                }
             }
 
             small {
