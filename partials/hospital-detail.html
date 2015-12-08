@@ -1,4 +1,5 @@
 <!-- HTML partial for the hospital details page -->
+<link href="css/pages/detail.css" rel="stylesheet" type="text/css" />
 <div class="wrapper">
 	<div class="row">
 		<div class="col-md-4">
@@ -6,14 +7,14 @@
 			  width="400"
 			  height="400"
 			  frameborder="0" style="border:0"
-			  src={{mapURL(testHospital)}} allowfullscreen>
+			  src={{mapURL(hospital)}} allowfullscreen>
 			</iframe>
 		</div>
 		<div class="col-md-8">
-			<h1>{{(testHospital[9])}}</h1>
-			<p>{{lowercase(testHospital[10])}}<br>
-			{{cityState(testHospital)}}<br>
-			{{phone(testHospital[14][0])}}<br>
+			<h1>{{(hospital[9])}}</h1>
+			<p><i class="fa fa-building-o"></i></i>&nbsp;&nbsp;{{lowercase(hospital[10])}}<br>
+			<i class="fa fa-building"></i>&nbsp;&nbsp;{{cityState(hospital)}}<br>
+			<i class="fa fa-phone"></i>&nbsp;&nbsp;{{phone(hospital[14][0])}}<br>
 			</p>
 		</div>
 	</div>
