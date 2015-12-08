@@ -1,7 +1,4 @@
-'use strict';
-
-module.exports = {
-    'hospitals': {
+[{
           "meta" : {
             "view" : {
               "id" : "zzzz-zzzz",
@@ -358,5 +355,4 @@ module.exports = {
         , [ 4526, "33D4A960-AEE6-4991-A6C5-910067725EA4", 4526, 1441325849, "391130", 1441325894, "386561", null, "501340", "PEACEHEALTH PEACE ISLAND MEDICAL CENTER", "1117 SPRING STREET", "FRIDAY HARBOR", "WA", "98250", [ "3603782141", null ], true, [ "{\"address\":\"1117 SPRING STREET\",\"city\":\"FRIDAY HARBOR\",\"state\":\"WA\",\"zip\":\"98250\"}", "48.529857", "-123.028171", null, false ] ]
         , [ 4527, "2578F2F7-0394-4D70-A171-E4403B7AB326", 4527, 1441325849, "391130", 1441325893, "386561", null, "503300", "SEATTLE CHILDREN'S HOSPITAL", "4800 SAND POINT WAY NE, PO BOX C-5371", "SEATTLE", "WA", "98105", [ "2069872000", null ], true, [ "{\"address\":\"4800 SAND POINT WAY NE, PO BOX C-5371\",\"city\":\"SEATTLE\",\"state\":\"WA\",\"zip\":\"98105\"}", "47.664447", "-122.283227", null, false ] ]
         ]
-    }
-};
+    }]

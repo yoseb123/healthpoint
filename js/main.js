@@ -1,14 +1,11 @@
 'use strict';
+var DATA_START_INDEX = 8,
+    DATA_END_INDEX = 16;
 
-<<<<<<< HEAD
-=======
- // var $ = require('jquery'),
- //     data = require('./data/data'),
- //     constants = require('./lib/constants'),
- //     angular = require('angular'),
- //     angularUiRouter = require("angular-ui-router");
-//ui-router/release/
+
+
 var myApp = angular.module('MyApp', ['ui.router', 'ngSanitize'])
+
 	.config(function($stateProvider){
 	$stateProvider
 		.state('home', {
@@ -36,23 +33,35 @@ var myApp = angular.module('MyApp', ['ui.router', 'ngSanitize'])
 
 }])
 .controller('SearchCtrl', ['$scope', '$http',function($scope, $http) {
-	console.log("in search");
+	
 
+	$http.get('js/data/data.json').then(function(response) {
+		$scope.hospitals = []; 
+ 		$scope.hospitalsDataSet = response.data;
+ 		for (var i = 0; i < $scope.hospitalsDataSet[0].data.length; i++) {
+ 			console.log($scope.hospitalsDataSet[0].data[i]);
+ 			$scope.hospitals.push($scope.hospitalsDataSet[0].data[i]);
 
+ 		};
+ 		$scope.hospitalInfo = $scope.hospitalsDataSet.data;
+ 		console.log($scope.hospitals);
+
+ 	});
 }])
 
-.controller('DetailCtrl', ['$scope', '$http', '$sce',function($scope, $http, $sce) {
+.controller('DetailCtrl', ['$scope', '$http', '$sce', '$filter', '$stateParams',function($scope, $http, $sce, $filter, $stateParams) {
 
 	console.log("in detail");
 
-	$http.get('js/data/hospitals.json').then(function(response) {
+	$http.get('js/data/geninfo.json').then(function(response) {
         $scope.hospitals = response.data.data;
-        // $scope.hospital = $filter('filter')($scope.hospitals, { // filter the array
-        //     8: $stateParams.id
-        // }, true)[0]; // save the 0th result
-		$scope.testHospital = response.data.data[91];
-        console.log($scope.testHospital);
+        $scope.hospital = $filter('filter')($scope.hospitals, function(hospital) { // filter the array
+            return hospital[8] == $stateParams.id;
+        }, true)[0]; // save the 0th result
     });
+
+
+console.log(myApp);
 
     $scope.lowercase = function(string) {
         return string.replace(/\w\S*/g, function(word) {
@@ -67,7 +76,7 @@ var myApp = angular.module('MyApp', ['ui.router', 'ngSanitize'])
     $scope.cityState = function(hospital) {
     	var city = hospital[11].charAt(0).toUpperCase() + hospital[11].substr(1).toLowerCase();
     	var state = hospital[12];
-    	return city + ', ' + state; 
+    	return city + ', ' + state + ' '+ hospital[13]; 
     };
 
     $scope.phone = function(number) {
@@ -81,10 +90,5 @@ var myApp = angular.module('MyApp', ['ui.router', 'ngSanitize'])
     	return $sce.trustAsResourceUrl(url);
     };
 
-}])
->>>>>>> origin/esc11
 
-// data.hospitals.data.forEach(function(hosp) {
-//     console.log(hosp[constants.DATA_START_INDEX]);
-//     console.log(hosp[constants.DATA_END_INDEX]);
-// });
+}]);
