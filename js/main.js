@@ -92,9 +92,32 @@ console.log(myApp);
 
     $http.get('js/data/surveys.json').then(function(response) {
         $scope.surveys = response.data.data;
-        $scope.survey = $filter('filter')($scope.surveys, function(survey) { // filter the array
-            return hospital[8] == $stateParams.id;
-        }, true)[0]; // save the 0th result
+        $scope.cleanRating = $filter('filter')($scope.surveys, function(survey) {
+            return survey[8] == $stateParams.id;
+        }, true)[0];
+        $scope.quietRating = $filter('filter')($scope.surveys, function(survey) {
+            if (survey[11] == 'H_QUIET_STAR_RATING') {
+                return survey[8] == $stateParams.id;
+            }
+        }, true)[0];
+        $scope.painRating = $filter('filter')($scope.surveys, function(survey) {
+            if (survey[11] == 'H_COMP_4_STAR_RATING') {
+                return survey[8] == $stateParams.id;
+            }
+        }, true)[0];
+        $scope.doctorRating = $filter('filter')($scope.surveys, function(survey) {
+            if (survey[11] == 'H_COMP_2_STAR_RATING') {
+                return survey[8] == $stateParams.id;
+            }
+        }, true)[0];
+        $scope.nurseRating = $filter('filter')($scope.surveys, function(survey) {
+            if (survey[11] == 'H_COMP_1_STAR_RATING') {
+                return survey[8] == $stateParams.id;
+            }
+        }, true)[0];
     });
 
-}]);
+    $scope.barWidth = function(rating) {
+        return 'width:' + (rating * 20) + '%';
+    };
+}])
