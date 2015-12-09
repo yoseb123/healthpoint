@@ -17,7 +17,8 @@
     <body>
         <nav ng-controller="NavController">
             <a ui-sref="home">HealthPoint</a>
-            <div class="pull-right">
+            <div class="pull-right right">
+                <a ui-sref="search">Hospitals</a>
                 <a ng-if="!userSignedIn" ui-sref="signin">Sign In</a>
                 <a ng-if="userSignedIn" ng-click="processSignout()" href="#">Sign Out</a>
             </div>
