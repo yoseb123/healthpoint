@@ -17,7 +17,6 @@
                 width: 100%;
                 border: none;
                 padding: 1em;
-                border-radius: 3px;
                 color: $gray-5;
             }
 
@@ -41,21 +40,24 @@
     }
 
     #search-table {
-        padding: 1em 0;
-
         table {
-            width: 100%;
-            border-radius: 5px;
-            border: 1px solid $gray-1;
-            border-top: none;
+            margin: 1em 0;
 
             tr {
-                padding: .5em 0;
-                border-bottom: 1px solid $gray-1;
+                border: 1px solid $gray-1;
                 transition: all 0.3s;
 
                 &:hover {
                     background-color: $gray-1;
+                }
+
+                &:first-child {
+                    border: none;
+                }
+
+                th, td {
+                    text-align: left;
+                    padding: 1em 0.5em;
                 }
 
                 th {
@@ -67,25 +69,12 @@
                     }
 
                     &:last-child {
-                        border-radius: 0 3px 0 0;   
+                        border-radius: 0 3px 0 0;
                     }
 
                     &:hover {
                         color: white;
                     }
-                }
-
-                th, td {
-                    text-align: left;
-                    padding: 1em 0.5em;
-
-                    &:last-child {
-                        padding-right: 0.5em;
-                    }
-                }
-                
-                td {
-                    text-align: left;
                 }
             }
         }
@@ -96,6 +85,10 @@
             #search-wrap {
                 width: 60%;
                 margin: 0 auto;
+
+                input {
+                    border-radius: 3px;
+                }
 
                 button {
                     top: -57px;
