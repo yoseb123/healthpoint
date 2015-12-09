@@ -1,26 +1,106 @@
 #detail {
-/*  .progressbar {
-    background-color: #fff;
-    width: 400px;
-    border-radius: 13px;
-    padding: 3px;
-    height: 22px;
-    margin:10px;
-  }
+    #detail-container {
+      background-color: white;
 
-  .progressbar > div {
-     background-color: $yellow;
-     height: 100%;
-     border-radius: 10px;
-     width:0;
-     line-height: 22px;
-     text-align: right;
-     color:#eee;
-  }
+      p {
+        margin: 1em 0;
 
-  .col-md-3 {
-    font-weight:400;
-  }*/
+        i {
+          margin: 1em 0.1em;
+          color: $dill-mint-2;
+        }
+      }
 
-  
+      #ratings {
+        padding: 0.5em 0 0 4em;
+      }
+
+      iframe {
+        width: 100%;
+        height: 400px;
+      }
+    }
+
+    #reviews-container {
+      h2 {
+        margin: 1em 0;
+      }
+
+      #reviews {
+        margin-bottom: 1em;
+
+        .review {
+          background-color: white;
+          border-radius: 3px;
+          padding: 0.4em 1em 1em 1em;
+          margin-bottom: 1em;
+
+          small {
+            color: $gray-3;
+            position: relative;
+            top: 1em;
+          }
+
+          p { 
+            word-break: break-all;
+            color: $gray-5;
+          }
+        }
+      }
+
+      form {
+        input, textarea, #in-form-rating {
+          width: 100%;
+          border-radius: 3px;
+          border: none;
+          margin-bottom: 1em;
+          padding: 0.5em;
+        }
+
+        button {
+          border: none;
+          margin-bottom: 1em;
+          padding: 0.8em 1em;
+          background-color: $dill-mint-2;
+          transition: all 0.3s;
+          color: white;
+          border-radius: 3px;
+
+          &:hover {
+            background-color: $dill-mint-1;
+          }
+        }
+
+        input {
+          display: block;
+        }
+
+        textarea {
+          display: block;
+        }
+      }
+    }
+
+    #ratings, #in-form-rating {
+      .rating {
+        margin-bottom: 1em;
+
+        .raty {
+          margin-left: 0.5em;
+          color: $dill-mint-2;
+        }
+      }
+    }
+
+    #in-form-rating {
+      background-color: white;
+
+      .rating {
+        text-align: center;
+
+        .raty {
+          color: $dill-mint-2;
+        }
+      } 
+    }
 }
