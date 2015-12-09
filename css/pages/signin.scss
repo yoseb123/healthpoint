@@ -22,13 +22,13 @@
 
             input[type="submit"] {
                 margin: 1em 0;
-                background-color: $dill-3;
+                background-color: $dill-mint-2;
                 color: $gray-1;
                 border: none;
                 transition: all 0.3s;
 
                 &:hover {
-                    background-color: $dill-2;
+                    background-color: $dill-mint-1;
                     color: white;
                 }
             }
