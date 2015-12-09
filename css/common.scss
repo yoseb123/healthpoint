@@ -10,7 +10,7 @@
 /* CUSTOM STYLES */
 body {
   font-family: $fs-osans;
-  font-weight: 600;
+  font-weight: 400;
   font-size: 16px;
   color: #212121;
   margin: 0;
@@ -29,6 +29,7 @@ a {
 }
 
 nav, footer {
+  font-weight: 600;
   background-color: $dill-2;
 
   a {
@@ -65,7 +66,9 @@ footer {
 
 /* Small devices (tablets, 768px and up) */
 @media (min-width: 768px) {
-
+  body {
+    font-size: 18px;
+  }
 }
 
 /* Medium devices (desktops, 992px and up) */
