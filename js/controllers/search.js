@@ -1,9 +1,9 @@
 'use strict';
 
 // search controller
-App.controller('SearchCtrl', ['$scope', '$http',function($scope, $http) {
+App.controller('SearchCtrl', ['$scope', '$http','homeSearch',function($scope, $http, homeSearch) {
+    $scope.searchQuery = homeSearch.toSearch;
     $scope.sortingCriteria = '';
-    console.log($scope.sortingCriteria);
     $http.get('js/data/data.json').then(function(response) {
         $scope.hospitals = []; 
         $scope.hospitalsDataSet = response.data;

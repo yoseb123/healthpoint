@@ -1,106 +1,106 @@
 #detail {
-    #detail-container {
-      background-color: white;
+  #detail-container {
+    background-color: white;
 
-      p {
-        margin: 1em 0;
+    p {
+      margin: 1em 0;
 
-        i {
-          margin: 1em 0.1em;
-          color: $dill-mint-2;
+      i {
+        margin: 1em 0.1em;
+        color: $dill-mint-2;
+      }
+    }
+
+    #ratings {
+      padding: 0.5em 0 0 4em;
+    }
+
+    iframe {
+      width: 100%;
+      height: 400px;
+    }
+  }
+
+  #reviews-container {
+    h2 {
+      margin: 1em 0;
+    }
+
+    #reviews {
+      margin-bottom: 1em;
+
+      .review {
+        background-color: white;
+        border-radius: 3px;
+        padding: 0.4em 1em 1em 1em;
+        margin-bottom: 1em;
+
+        small {
+          color: $gray-3;
+          position: relative;
+          top: 1em;
+        }
+
+        p { 
+          word-break: break-all;
+          color: $gray-5;
         }
       }
+    }
 
-      #ratings {
-        padding: 0.5em 0 0 4em;
-      }
-
-      iframe {
+    form {
+      input, textarea, #in-form-rating {
         width: 100%;
-        height: 400px;
-      }
-    }
-
-    #reviews-container {
-      h2 {
-        margin: 1em 0;
-      }
-
-      #reviews {
+        border-radius: 3px;
+        border: none;
         margin-bottom: 1em;
-
-        .review {
-          background-color: white;
-          border-radius: 3px;
-          padding: 0.4em 1em 1em 1em;
-          margin-bottom: 1em;
-
-          small {
-            color: $gray-3;
-            position: relative;
-            top: 1em;
-          }
-
-          p { 
-            word-break: break-all;
-            color: $gray-5;
-          }
-        }
+        padding: 0.5em;
       }
 
-      form {
-        input, textarea, #in-form-rating {
-          width: 100%;
-          border-radius: 3px;
-          border: none;
-          margin-bottom: 1em;
-          padding: 0.5em;
-        }
-
-        button {
-          border: none;
-          margin-bottom: 1em;
-          padding: 0.8em 1em;
-          background-color: $dill-mint-2;
-          transition: all 0.3s;
-          color: white;
-          border-radius: 3px;
-
-          &:hover {
-            background-color: $dill-mint-1;
-          }
-        }
-
-        input {
-          display: block;
-        }
-
-        textarea {
-          display: block;
-        }
-      }
-    }
-
-    #ratings, #in-form-rating {
-      .rating {
+      button {
+        border: none;
         margin-bottom: 1em;
+        padding: 0.8em 1em;
+        background-color: $dill-mint-2;
+        transition: all 0.3s;
+        color: white;
+        border-radius: 3px;
 
-        .raty {
-          margin-left: 0.5em;
-          color: $dill-mint-2;
+        &:hover {
+          background-color: $dill-mint-1;
         }
       }
+
+      input {
+        display: block;
+      }
+
+      textarea {
+        display: block;
+      }
     }
+  }
 
-    #in-form-rating {
-      background-color: white;
+  #ratings, #in-form-rating {
+    .rating {
+      margin-bottom: 1em;
 
-      .rating {
-        text-align: center;
-
-        .raty {
-          color: $dill-mint-2;
-        }
-      } 
+      .raty {
+        margin-left: 0.5em;
+        color: $dill-mint-2;
+      }
     }
+  }
+
+  #in-form-rating {
+    background-color: white;
+
+    .rating {
+      text-align: center;
+
+      .raty {
+        color: $dill-mint-2;
+      }
+    } 
+  }
 }

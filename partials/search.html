@@ -34,7 +34,7 @@
 						</th>
 					</tr>
 
-					<tr ng-repeat="hospital in hospitals  | orderBy:sortingCriteria | filter:searchQuery">
+					<tr ng-repeat="hospital in hospitals  | orderBy:sortingCriteria | filter:searchQuery || toSearch">
 						<td>
 							<a ui-sref="detail({id: hospital[8]})">{{hospital[9]}}</a>
 						</td>
