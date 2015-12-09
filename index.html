@@ -12,16 +12,16 @@
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.js"></script>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 
-        <link rel="stylesheet" href="css/flat-ui.min.css">
+        <!-- <link rel="stylesheet" href="css/flat-ui.min.css"> -->
         <link rel="stylesheet" href="css/grid.min.css">
         <link rel="stylesheet" href="css/all.min.css"/>
     </head>
     <body>
         <nav ng-controller="NavController">
-            <a ui-sref="home">healthPOINT</a>
+            <a ui-sref="home">HealthPoint</a>
             <div class="pull-right">
-                <a ng-if="!userSignedIn" ui-sref="signin">SIGN IN</a>
-                <a ng-if="userSignedIn" ng-click="processSignout()" href="#">SIGN OUT</a>
+                <a ng-if="!userSignedIn" ui-sref="signin">Sign In</a>
+                <a ng-if="userSignedIn" ng-click="processSignout()" href="#">Sign Out</a>
             </div>
         </nav>
         <div ui-view></div>
@@ -30,6 +30,8 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.15/angular-ui-router.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0rc1/angular-sanitize.min.js"></script>
         <script src="https://www.parsecdn.com/js/parse-1.6.7.min.js"></script>
+        <script src="js/lib/jquery/dist/jquery.min.js"></script>
+        <script src="js/lib/jquery.raty-fa.js"></script>
         <script src="js/main.js"></script>
         <script src="js/controllers/navigation.js"></script>
         <script src="js/controllers/home.js"></script>

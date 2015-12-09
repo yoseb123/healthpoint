@@ -25,7 +25,21 @@ h1, h2, h3, h4, h5, h6 {
 
 a {
   text-decoration: none;
-  color: #fff;
+  color: $gray-1;
+}
+
+nav, footer {
+  background-color: $dill-2;
+
+  a {
+    text-decoration: none;
+    color: $gray-1;
+    transition: color 0.3s;
+
+    &:hover {
+      color: white;
+    }
+  }
 }
 
 nav {
@@ -34,24 +48,17 @@ nav {
   padding: 1em;
   padding-right: 1em;
   height:50px;
-  background-color: $maroon;
   width: 100%;
 }
 
-nav a:hover {
-  color: $yellow;
+section {
+  padding-top: 50px;
 }
 
 footer {
   height:50px;
-  background-color: $maroon;
   padding: 1em;
   padding-left: 50px;
-}
-
-.wrapper {
-  min-height:500px;
-  padding: 4em;
 }
 
 /* MEDIA QUERIES */
@@ -71,39 +78,6 @@ footer {
 
 }
 
-/* KEYFRAMES */
-.way-in {
-  animation: animateIn 0.4s;
-  animation-delay: 0.1s;
-  animation-fill-mode: forwards;
-  animation-timing-function: ease-in-out;
-  -webkit-animation: animateIn 0.4s;
-  -webkit-animation-delay: 0.1s;
-  -webkit-animation-fill-mode: forwards;
-  -webkit-animation-timing-function: ease-in-out;
-  opacity: 0;
-}
-
-@keyframes animateIn {
-  from {
-      transform: translateY(500px);
-  }
-  to {
-    transform: translateY(0px);
-      opacity: 1;
-  }
-}
-
-@-webkit-keyframes animateIn {
-  from {
-      -webkit-transform: translateY(500px);
-  }
-  to {
-    -webkit-transform: translateY(0px);
-      opacity: 1;
-  }
-}
-
 /* BETTER BOX SIZING */
 * {
   box-sizing: border-box;
@@ -114,17 +88,17 @@ footer {
 
 /* TEXT SELECTION */
 ::selection {
-  background: #552233;
+  background: $dill-1;
   color: white;
 }
 
 ::-webkit-selection {
-  background: #552233;
+  background: $dill-1;
   color: white;
 }
 
 ::-moz-selection {
-  background: #552233;
+  background: $dill-1;
   color: white;
 }
 

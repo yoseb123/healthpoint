@@ -1,12 +1,16 @@
 'use strict';
 
 // hospital detail controller
-App.controller('DetailCtrl', ['$scope', '$http', '$sce', '$filter', '$stateParams', function($scope, $http, $sce, $filter, $stateParams) {
+App.controller('DetailCtrl', ['$scope', '$http', '$sce', '$filter', '$stateParams', 
+    function($scope, $http, $sce, $filter, $stateParams) {
+    // get general hospital info
     $http.get('js/data/geninfo.json').then(function(response) {
         $scope.hospitals = response.data.data;
-        $scope.hospital = $filter('filter')($scope.hospitals, function(hospital) { // filter the array
+        $scope.hospital = $filter('filter')($scope.hospitals, function(hospital) {
             return hospital[8] == $stateParams.id;
         }, true)[0]; // save the 0th result
+
+        
     });
 
     $scope.lowercase = function(string) {
@@ -31,8 +35,9 @@ App.controller('DetailCtrl', ['$scope', '$http', '$sce', '$filter', '$stateParam
 
     $scope.mapURL = function(hospital) {
         var name = hospital[9]
-        var url = 'https://www.google.com/maps/embed/v1/place?key=AIzaSyAnezpngkfubjHIWnrZNCmhGv-_IzyLjMs&q='
-        + name;
+        var url = 'https://www.google.com/maps/embed/v1/place?' + 
+            'key=AIzaSyAnezpngkfubjHIWnrZNCmhGv-_IzyLjMs&q=' +
+            name;
         return $sce.trustAsResourceUrl(url);
     };
 
