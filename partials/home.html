@@ -4,8 +4,8 @@
 	<div id="title">
 		<p class="text-center">Find the hospital that's right for you.</p>
 		<div>
-			<input class="float-left" type="text" placeholder="Search for a hospital" />
-			<button class="float-right">Search</button>
+			<input class="float-left" type="text" placeholder="Search for a hospital" ng-model = "searchQuery" />
+			<button class="float-right" ng-click = "saveSearch(searchQuery)" ui-sref = "search">Search</button>
 		</div>
 	</div>
 
