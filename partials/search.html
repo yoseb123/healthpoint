@@ -1,37 +1,46 @@
 <!-- HTML partial for the search feature -->
-<div class = "container outer">
+<section id="search">
 
-	<div class=" row">
-		<div class = "col-sm-8">
-		</div>
-		<div class = "col-sm-4">
-			<input class="form-control " type="text" placeholder="Search" name = "search" ng-model = "searchQuery" />
-			<button type="submit" class="btn btn-warning"><i class="fa fa-search"></i></button>
+	<!-- Search container -->
+	<div id="search-container">
+		<div class="row">
+			<div class="col-sm-12">
+				<div id="search-wrap">
+					<input class="form-control float-left" type="text" placeholder="Search for a hospital" name="search" ng-model="searchQuery" />
+					<button class="float-right">Search</button>
+				</div>
+			</div>
 		</div>
 	</div>
 
+	<!-- Hospital table container -->
+	<div class="container" id="search-table">
+		<table class="row">
+			<tr>
+				<th>
+					<span ng-click="sortingCriteria= hospital[9]">Name &nbsp; &updownarrow;</span>
+				</th>
+				<th>
+					<span ng-click="sortingCriteria= hospital[10]">Address &nbsp; &updownarrow;</span>
+				<th>
+					<span ng-click="sortingCriteria= hospital[11]">City &nbsp; &updownarrow;</span>
+				</th>
+				<th>
+					<span ng-click="sortingCriteria= hospital[12]">State &nbsp; &updownarrow;</span>
+				</th>
+			</tr>
 
-	<table class="table row">
-		<tr class = "tableNav ">
-			<th><a href="" ng-click="sortingCriteria= hospital[9]">Name</a></th>
-			<th><a href="" ng-click="sortingCriteria= hospital[10]">Address</a></th>
-			<th><a href="" ng-click="sortingCriteria= hospital[11]">City</a></th>
-			<th><a href="" ng-click="sortingCriteria= hospital[12]">State</a></th>
-			<th><a href="" ng-click="sortingCriteria= hospital[13]">Location</a></th>
-		</tr>
-		<tr ng-repeat="hospital in hospitals  | orderBy:sortingCriteria | filter:searchQuery" class = "hospitalResults">
-			<!-- hospital name -->
-			<td><a ui-sref="detail({id: hospital[8]})">{{hospital[9]}}</a></td>
-			<!-- hospital Address -->
-			<td>{{hospital[10]}}</td>
-			<!-- city -->
-			<td>{{hospital[11]}}</td>
-			<!-- state -->
-			<td>{{hospital[12]}}</td>
-
-			<td>{{hospital[13]}}</td>
-		</tr>
-	</table>
+			<tr ng-repeat="hospital in hospitals  | orderBy:sortingCriteria | filter:searchQuery">
+				<!-- hospital name -->
+				<td><a ui-sref="detail({id: hospital[8]})">{{hospital[9]}}</a></td>
+				<!-- hospital address -->
+				<td>{{hospital[10]}}</td>
+				<!-- city -->
+				<td>{{hospital[11]}}</td>
+				<!-- state -->
+				<td>{{hospital[12]}}</td>
+			</tr>
+		</table>
+	</div>
 	
 </div>
-<!-- | filter:searchQuery  -->

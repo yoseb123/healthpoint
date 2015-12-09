@@ -37,14 +37,14 @@
       position: relative;
       top: -51px;
       left: -3px;
-      background-color: $dill-3;
+      background-color: $dill-mint-2;
       padding: 1em;
       border-radius: 3px;
       color: $gray-1;
       transition: all 0.3s;
 
       &:hover {
-        background-color: $dill-2;
+        background-color: $dill-mint-1;
         color: white;
       }
     }
