@@ -1,0 +1,28 @@
+<section id="signin">
+    <div class="container-fluid">
+        <div class="row">
+            <div id="signin-wrapper">
+                <div id="signin-form-wrapper" class="col-sm-6">
+                    <h2 class="text-center">Sign in</h2>
+                    <!-- Sign in form -->
+                    <form name="signinForm" id="signin-form" ng-submit="processSignin()">
+                        <input type="text" name="username" value="" ng-model="siUsername" placeholder="Username" required />
+                        <input type="password" name="password" value="" ng-model="siPassword" placeholder="Password" pattern=".{8,}" required title="Must be greater than 8 characters in length" />
+                        <input type="submit" value="Sign In" />
+                    </form>
+                </div>
+                <div id="signup-form-wrapper"  class="col-sm-6">
+                    <small class="block text-center">Not a user? Create an account.</small>
+                    <!-- Sign up form -->
+                    <form name="signupForm" id="signup-form" ng-submit="processSignup()">
+                        <input type="text" placeholder="Username" ng-model="suUsername" required="required" pattern=".{2,}" title="Username must be at least two characters in length"/>
+                        <input type="password" placeholder="Password" ng-model="suPassword" pattern=".{8,}" title="Must be greater than 8 characters in length" required />
+                        <input type="password" placeholder="Confirm Password" ng-model="suPasswordConfirm" pattern=".{8,}" title="Must be greater than 8 characters in length" required />
+                        <input type="email" placeholder="Email" ng-model="suEmail" required="required" />
+                        <input type="submit" value="Create Account" />
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

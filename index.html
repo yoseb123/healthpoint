@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="MyApp">
+<html lang="en" ng-app="App">
     <head>
         <!-- viewport declaration for mobile devices -->
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -12,21 +12,32 @@
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.js"></script>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 
-        <link rel="stylesheet" href="css/flat-ui.min.css">
+        <!-- <link rel="stylesheet" href="css/flat-ui.min.css"> -->
         <link rel="stylesheet" href="css/grid.min.css">
         <link rel="stylesheet" href="css/all.min.css"/>
     </head>
     <body>
-
-        <nav>
-            <a ui-sref="home"><!-- <img class="hplogo" src="../img/hplogo-background.jpg" alt="logo"> -->healthPOINT</a></div>
-            <div class="pull-right"><a ui-sref="tba">SIGN IN</a></div>
+        <nav ng-controller="NavController">
+            <a ui-sref="home">HealthPoint</a>
+            <div class="pull-right">
+                <a ng-if="!userSignedIn" ui-sref="signin">Sign In</a>
+                <a ng-if="userSignedIn" ng-click="processSignout()" href="#">Sign Out</a>
+            </div>
         </nav>
-
         <div ui-view></div>
         <footer></footer>
+         
         <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.15/angular-ui-router.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0rc1/angular-sanitize.min.js"></script>
+        <script src="https://www.parsecdn.com/js/parse-1.6.7.min.js"></script>
+        <script src="js/lib/jquery/dist/jquery.min.js"></script>
+        <script src="js/lib/jquery.raty-fa.js"></script>
         <script src="js/main.js"></script>
+        <script src="js/controllers/navigation.js"></script>
+        <script src="js/controllers/home.js"></script>
+        <script src="js/controllers/signIn.js"></script>
+        <script src="js/controllers/detail.js"></script>
+        <script src="js/controllers/search.js"></script>
+        <script src="js/controllers/service.js"></script>
     </body>
 </html>
