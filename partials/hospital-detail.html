@@ -1,53 +1,136 @@
 <!-- HTML partial for the hospital details page -->
 <section id="detail">
-	<!-- Individual details -->
-	<div class="container">
+	
+	<!-- Individual hospital details -->
+	<div id="detail-container" class="container-fluid">
 		<div class="row">
-			<div class="col-md-3">
+			<div class="col-xs-6 col-sm-4">
 				<h1>{{(hospital[9])}}</h1>
-				<p><i class="fa fa-building-o"></i></i>&nbsp;&nbsp;{{lowercase(hospital[10])}}<br><br>
-				<i class="fa fa-building"></i>&nbsp;&nbsp;{{cityState(hospital)}}<br><br>
-				<i class="fa fa-phone"></i>&nbsp;&nbsp;{{phone(hospital[14][0])}}<br><br>
+				<p>
+					<span>
+						<i class="fa fa-building-o"></i>&nbsp;&nbsp;
+						{{lowercase(hospital[10])}}<br />
+						{{cityState(hospital)}}
+					</span>
+					<br />
+					<br />
+					<i class="fa fa-phone"></i>&nbsp;&nbsp;{{phone(hospital[14][0])}}<br>
 				</p>
 			</div>
-			<div class="col-md-5">
-				<h6><i class="fa fa-trash-o"></i>&nbsp;&nbsp;Cleanliness</h6>
-				<div class="progressbar">
-					<div style={{barWidth(cleanRating[13])}}></div>
+			<div id="ratings" class="col-xs-6 col-md-4">
+				<div class="rating">
+					<h4>
+						<i class="fa fa-trash-o"></i>&nbsp;&nbsp;Cleanliness
+					</h4>
+					<div id="avgClean" class="raty"></div>
 				</div>
-				<h6><i class="fa fa-volume-up"></i>&nbsp;&nbsp;Quietness</h6>
-				<div class="progressbar">
-					<div style={{barWidth(quietRating[13])}}></div>
-				</div>
-				<h6><i class="fa fa-eyedropper"></i>&nbsp;&nbsp;Pain Management</h6>
-				<div class="progressbar">
-					<div style={{barWidth(painRating[13])}}></div>
-				</div>
-				<h6><i class="fa fa-user-md"></i>&nbsp;&nbsp;Doctor Communication</h6>
-				<div class="progressbar">
-					<div style={{barWidth(doctorRating[13])}}></div>
-				</div>
-				<h6><i class="fa fa-users"></i>&nbsp;&nbsp;Nurse Communication</h6>
-				<div class="progressbar">
-					<div style={{barWidth(nurseRating[13])}}></div>
-				</div>
-			</div>
-			<div class="col-md-4">
-				<iframe
-				  width="400"
-				  height="400"
-				  frameborder="0" style="border:0"
-				  src={{mapURL(hospital)}} allowfullscreen>
-				</iframe>
-			</div>
-		</div>
-	</div>
-	<!-- Reviews -->
-	<div class="container">
-		<div class="row">
-			<form name="review-form">
 				
-			</form>
+				<div class="rating">
+					<h4>
+						<i class="fa fa-volume-up"></i>&nbsp;&nbsp;Quietness
+					</h4>
+					<div id="avgQuiet" class="raty"></div>
+				</div>
+				
+				<div class="rating">
+					<h4>
+						<i class="fa fa-eyedropper"></i>&nbsp;&nbsp;Pain Management
+					</h4>
+					<div id="avgPain" class="raty"></div>
+				</div>
+				
+				<div class="rating">
+					<h4>
+						<i class="fa fa-user-md"></i>&nbsp;&nbsp;Doctor Communication
+					</h4>
+					<div id="avgDoctor" class="raty"></div>
+				</div>	
+				
+				<div class="rating">
+					<h4>
+						<i class="fa fa-users"></i>&nbsp;&nbsp;Nurse Communication
+					</h4>
+					<div id="avgNurse" class="raty"></div>
+				</div>
+			</div>
+			<div class="row no-gutter">
+				<div class="col-xs-12 col-md-4">
+					<iframe
+					  frameborder="0"
+					  src={{mapURL()}}>
+					</iframe>
+				</div>
+			</div>
 		</div>
 	</div>
+
+	<!-- Reviews -->
+	<div id="reviews-container" class="container">
+		<!-- List of reviews -->
+		<div class="row">
+			<div class="col-xs-offset-1 col-xs-10 col-xs-offset-1">
+				<h2 class="text-center">Reviews</h2>
+				<ul id="reviews">
+					<!-- Will repeat here -->
+					<li class="review" ng-repeat="review in reviews">
+						<small class="float-right">{{review.get('updatedAt') | date:'MMM d, yyyy'}}</small>
+						<h3>{{review.get('title')}}</h3>
+						<hr />
+						<p>{{review.get('body')}}</p>
+					</li>
+				</ul>
+			</div>
+		</div>
+		
+		<!-- Review form -->
+		<div class="row">
+			<div class="col-xs-offset-1 col-xs-10 col-xs-offset-1">
+				<div ng-if="userSignedIn">
+					<h2 class="text-center">Write a Review</h2>
+					<form name="review-form" ng-submit="postReview()">
+						<input ng-model="review.title" type="text" placeholder="Review Title" required />
+						<textarea ng-model="review.body" type="text" rows="5" placeholder="Review Body" required></textarea>
+						<div id="in-form-rating">
+							<div class="rating">
+								<h4>
+									<i class="fa fa-trash-o"></i>&nbsp;&nbsp;Cleanliness
+								</h4>
+								<div id="raty-clean" class="raty"></div>
+							</div>
+							
+							<div class="rating">
+								<h4>
+									<i class="fa fa-volume-up"></i>&nbsp;&nbsp;Quietness
+								</h4>
+								<div id="raty-quiet" class="raty"></div>
+							</div>
+							
+							<div class="rating">
+								<h4>
+									<i class="fa fa-eyedropper"></i>&nbsp;&nbsp;Pain Management
+								</h4>
+								<div id="raty-pain" class="raty"></div>
+							</div>
+							
+							<div class="rating">
+								<h4>
+									<i class="fa fa-user-md"></i>&nbsp;&nbsp;Doctor Communication
+								</h4>
+								<div id="raty-doctor-comm" class="raty"></div>
+							</div>
+							
+							<div class="rating">
+								<h4>
+									<i class="fa fa-users"></i>&nbsp;&nbsp;Nurse Communication
+								</h4>
+								<div id="raty-nurse-comm" class="raty"></div>
+							</div>
+						</div>
+						<button>Post Review</button>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+
 </section>

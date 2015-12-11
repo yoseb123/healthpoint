@@ -1,8 +1,8 @@
 "use strict";
 
-App.factory('homeSearch',function(){
+App.factory('homeSearch', function() {
 	var service = {};
-	service.toSearch='';
+	service.toSearch = '';
 
 	return service;
-})
+});
