@@ -22,15 +22,28 @@
 				<table>
 					<tr>
 						<th>
-							<span ng-click="sortingCriteria= hospital[9]">Name &updownarrow;</span>
+							<span ng-click="sortingCriteria= hospital[9]">Name</span>
 						</th>
 						<th>
-							<span ng-click="sortingCriteria= hospital[10]">Address &updownarrow;</span>
-						<th>
-							<span ng-click="sortingCriteria= hospital[11]">City &updownarrow;</span>
+							<span ng-click="sortingCriteria= hospital[11]">City</span>
 						</th>
 						<th>
 							<span ng-click="sortingCriteria= hospital[12]">State</span>
+						</th>
+						<th>
+							<span ng-click="sortingCriteria= avgClean">Cleanliness</span>
+						</th>
+						<th>
+							<span ng-click="sortingCriteria= avgQuiet">Quietness</span>
+						</th>
+						<th>
+							<span ng-click="sortingCriteria= avgPain">Pain Management</span>
+						</th>
+						<th>
+							<span ng-click="sortingCriteria= avgDoctor">Doctor Communciation</span>
+						</th>
+						<th>
+							<span ng-click="sortingCriteria= avgNurse">Nurse Communication</span>
 						</th>
 					</tr>
 
@@ -38,9 +51,13 @@
 						<td>
 							<a ui-sref="detail({id: hospital[8]})">{{hospital[9]}}</a>
 						</td>
-						<td>{{hospital[10]}}</td>
 						<td>{{hospital[11]}}</td>
 						<td>{{hospital[12]}}</td>
+						<td>{{hospital[17]}}</td>
+						<td>{{hospital[18]}}</td>
+						<td>{{hospital[19]}}</td>
+						<td>{{hospital[20]}}</td>
+						<td>{{hospital[21]}}</td>
 					</tr>
 				</table>
 			</div>
