@@ -3,7 +3,12 @@
 // hospital detail controller
 App.controller('DetailCtrl', ['$scope', '$http', '$sce', '$filter', '$stateParams', 
     function($scope, $http, $sce, $filter, $stateParams) {
-    $scope.userId = Parse.User.current().id;
+    var user = Parse.User.current();
+    if (user) {
+        $scope.userId = user.id;
+    } else {
+        $scope.userId = undefined;
+    }
 
     // get general hospital info
     $http.get('js/data/geninfo.json').then(function(response) {
