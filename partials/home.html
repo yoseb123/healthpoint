@@ -4,8 +4,10 @@
 	<div id="title">
 		<p class="text-center">Find the hospital that's right for you.</p>
 		<div>
-			<input class="float-left" type="text" placeholder="Search for a hospital" ng-model = "searchQuery" />
-			<button class="float-right" ng-click = "saveSearch(searchQuery)" ui-sref = "search">Search</button>
+			<form>
+				<input class="float-left" type="text" placeholder="Search for a hospital" ng-model = "searchQuery" />
+				<button class="float-right" ng-click = "saveSearch(searchQuery)" ui-sref = "search">Search</button>
+			</form>
 		</div>
 	</div>
 
@@ -18,7 +20,7 @@
 		<div class="row">
 			<div class="col-xs-12">
 				<p style="line-height:1.5;">Rating websites are highly popular, from ratings of events to restaurants, there seems to be a way to rate almost anything online, except for healthcare. Simply search by name of the hospital or approxmiate address of the hospital that you want to go! Do you want to go to a hospital around Seattle but not sure which one would be best fit for you? HealthPoint will allow people to rate how their medical care experiences were at a certain hospital. By browsing ratings of various hospitals, you can find a hospital that is the best for any context. This new avenue of information about medical care can help even the most stubborn or indecisive feel more comfortable about seeing doctors.
-</p><br />
+				</p><br />
 
 				<p>What are you waiting for? Start searching!</p>
 			</div>

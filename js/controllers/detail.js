@@ -3,7 +3,8 @@
 // hospital detail controller
 App.controller('DetailCtrl', ['$scope', '$http', '$sce', '$filter', '$stateParams', 
     function($scope, $http, $sce, $filter, $stateParams) {
-    
+    $scope.userId = Parse.User.current().id;
+
     // get general hospital info
     $http.get('js/data/geninfo.json').then(function(response) {
         $scope.hospitals = response.data.data;
@@ -69,6 +70,18 @@ App.controller('DetailCtrl', ['$scope', '$http', '$sce', '$filter', '$stateParam
             $('#avgNurse').raty({
                 score: avgNurse / $scope.reviews.length,
                 readOnly: true
+            });
+        };
+
+        $scope.deleteReview = function(review) {
+            review.destroy({
+                success: function(myObject) {
+                    console.log('deleted review: ' + review.id);
+                    $scope.updateReviews();
+                },
+                error: function(myObject, error) {
+                    console.log(error.message);
+                }
             });
         };
 

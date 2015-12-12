@@ -74,6 +74,9 @@
 					<!-- Will repeat here -->
 					<li class="review" ng-repeat="review in reviews">
 						<small class="float-right">{{review.get('updatedAt') | date:'MMM d, yyyy'}}</small>
+						<small id="delete" class="float-right" ng-if="userSignedIn && userId==review.get('user').id">
+							<i class="fa fa-trash-o" ng-click="deleteReview(review)"></i>
+						</small>
 						<h3>{{review.get('title')}}</h3>
 						<hr />
 						<p>{{review.get('body')}}</p>
